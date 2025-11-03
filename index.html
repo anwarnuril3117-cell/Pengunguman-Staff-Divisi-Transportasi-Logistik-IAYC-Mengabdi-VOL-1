@@ -18,7 +18,7 @@
   <div id="result"></div>
 
 <script>
-const endpoint = https://script.google.com/macros/s/AKfycbz7jvICvsuL0G9-24lyHXB8XITRKHsVYBXSMebbRyuaiviRnCtXU72rVghtVgzkjq8R_Q/exec; // ganti dengan URL Web App hasil deploy
+const endpoint =https://script.google.com/macros/s/AKfycbz7knEWoVJK2eavg3Uc8ZkGA-KVSgh3Uk4Sca4ko2tN7DT7jyYYt4jiiGNpRtkw0OE8Pg/exec // 
 
 document.getElementById('cek').onclick = async () => {
   const id = document.getElementById('id').value.trim();
@@ -30,13 +30,14 @@ document.getElementById('cek').onclick = async () => {
     el.textContent = 'Data tidak ditemukan.';
   } else {
     el.innerHTML = `
-      <b>Kode:</b> ${data.kode}<br>
-      <b>Nama:</b> ${data.nama}<br>
-      <b>Status:</b> ${data.hasil}
+      <b>Kode:</b> ${data.UKA-007}<br>
+      <b>Nama:</b> ${data.Rangga Putra Wardana}<br>
+      <b>Status:</b> ${data.lulus}
     `;
   }
 };
 </script>
 </body>
 </html>
+
 
