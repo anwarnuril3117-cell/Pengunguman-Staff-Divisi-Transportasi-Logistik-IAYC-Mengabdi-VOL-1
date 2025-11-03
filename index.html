@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Pengumuman Kelulusan</title>
+<style>
+  body { font-family: Arial, sans-serif; max-width: 600px; margin: 40px auto; }
+  h1 { text-align: center; }
+  input, button { font-size: 16px; padding: 6px; margin-top: 10px; }
+  #result { margin-top: 20px; padding: 12px; border: 1px solid #ccc; }
+</style>
+</head>
+<body>
+  <h1>Cek Hasil Kelulusan</h1>
+  <label for="id">Masukkan Kode Unik:</label><br>
+  <input id="id" type="text" placeholder="contoh: UKA-001">
+  <button id="cek">Cek</button>
+  <div id="result"></div>
+
+<script>
+const endpoint = 'PASTE_WEB_APP_URL_HERE'; // ganti dengan URL Web App hasil deploy
+
+document.getElementById('cek').onclick = async () => {
+  const id = document.getElementById('id').value.trim();
+  if (!id) return alert('Kode tidak boleh kosong');
+  const res = await fetch(`${endpoint}?id=${encodeURIComponent(id)}`);
+  const data = await res.json();
+  const el = document.getElementById('result');
+  if (!data.found) {
+    el.textContent = 'Data tidak ditemukan.';
+  } else {
+    el.innerHTML = `
+      <b>Kode:</b> ${data.kode}<br>
+      <b>Nama:</b> ${data.nama}<br>
+      <b>Status:</b> ${data.hasil}
+    `;
+  }
+};
+</script>
+</body>
+</html>
